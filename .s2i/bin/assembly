@@ -5,7 +5,7 @@
 # mv $LOCAL_SOURCE_DIR/repositories/repositories $LOCAL_SOURCE_DIR/.sbt/repositories
 
 
-echo "Starting S2I Play Build ....."
+echo "Starting S2I Play Build yws ....."
 
 # Generate Secret
 if [ -z "${DISABLE_GENERATE_SECRET}" ]; then  
