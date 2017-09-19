@@ -2,6 +2,9 @@ name := "play-java-ebean-example"
 
 version := "1.0.0-SNAPSHOT"
 
+resolvers += "Artifactory" at "http://192.168.64.1:8381/artifactory/jcenter/"
+
+
 scalaVersion := "2.12.2"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
