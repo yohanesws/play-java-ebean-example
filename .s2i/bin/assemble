@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# LOCAL_SOURCE_DIR=${HOME}
-# mkdir $LOCAL_SOURCE_DIR/.sbt
-# mv $LOCAL_SOURCE_DIR/repositories/repositories $LOCAL_SOURCE_DIR/.sbt/repositories
+LOCAL_SOURCE_DIR=${HOME}
+echo $LOCAL_SOURCE_DIR
+mkdir $LOCAL_SOURCE_DIR/.sbt
+mv $LOCAL_SOURCE_DIR/repositories/repositories $LOCAL_SOURCE_DIR/.sbt/repositories
 
 
 echo "Starting S2I Play Build yws ....."
@@ -16,7 +17,7 @@ fi
 
 
 # Build
-/opt/activator/activator  universal:packageZipTarball 
+/opt/activator/activator  universal:packageZipTarball -Dsbt.override.build.repos=true -Dsbt.repository.config=$LOCAL_SOURCE_DIR/.sbt/repositories
 
 
 PLAY_ARCHIVE=$(ls -1 ${LOCAL_SOURCE_DIR}/target/universal/*.tgz)
